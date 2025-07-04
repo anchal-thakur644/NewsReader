@@ -14,7 +14,6 @@ function App() {
   return (
     <>
       <HeaderNavBar />
-
       <div className="h-auto w-full">
         <Routes>
           <Route path="/home" element={<HomeScreen />} />
@@ -25,9 +24,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-      <Footer />
     </>
-  );
   );
 }
 
