@@ -10,7 +10,7 @@ import {
 } from "@headlessui/react";
 
 import logo from "../assets/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const navigation = [
@@ -26,9 +26,14 @@ function classNames(...classes) {
 }
 
 const HeaderNavBar = () => {
-  const [active, setActive] = useState("Home");
+  const location = useLocation();
+  const [active, setActive] = useState("home");
+  const [activeHref, serActiveHref] = useState(
+    location.pathname.replaceAll("/", "")
+  );
 
   const navigate = useNavigate();
+
   return (
     <Disclosure as="nav" className="bg-blue-300 w-full">
       <div className="mx-auto  px-2 sm:px-6 lg:px-8 w-full">
@@ -60,9 +65,10 @@ const HeaderNavBar = () => {
                     aria-current={item.current ? "page" : undefined}
                     onClick={() => {
                       setActive(item.name), navigate(item.href);
+                      serActiveHref(item.href);
                     }}
                     className={classNames(
-                      active === item.name
+                      active === item.name || activeHref === item.href
                         ? "bg-white text-black"
                         : "text-gray-800 hover:bg-gray-400 hover:text-black",
                       "rounded-md px-3 py-2 text-sm font-medium"

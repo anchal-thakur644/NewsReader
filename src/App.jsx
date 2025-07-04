@@ -16,7 +16,7 @@ function App() {
       <HeaderNavBar />
       <div className="h-auto w-full">
         <Routes>
-          <Route path="/home" element={<HomeScreen />} />
+          <Route path="home" element={<HomeScreen />} />
           <Route path="/AboutUs" element={<AboutUsScreen />} />
           <Route path="/ContactUs" element={<ContactUsScreen />} />
           <Route path="/Services" element={<ServicesScreen />} />
