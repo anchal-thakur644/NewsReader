@@ -1,20 +1,32 @@
-import React from "react";
-import BannerSection from "./components/BannerSection";
-import { Route, Routes } from "react-router-dom";
-import HomeScreen from "./screens/HomeScreen";
-import AboutUs from "./screens/AboutUs";
+import "./App.css";
 
-const App = () => {
+import { Route, Router, Routes } from "react-router-dom";
+
+import AboutUsScreen from "./screens/AboutUsScreen";
+import ContactUsScreen from "./screens/ContactUsScreen";
+import Footer from "./components/Footer";
+import HeaderNavBar from "./components/HeaderNavBar";
+import HomeScreen from "./screens/HomeScreen";
+import OurProcessScreen from "./screens/OurProcessScreen";
+import ServicesScreen from "./screens/ServicesScreen";
+
+function App() {
   return (
     <>
-      <BannerSection />
+      <HeaderNavBar />
 
-      <Routes>
-        <Route path="/" element={<HomeScreen />} />
-        <Route path="/AboutUsS" element={<AboutUs />} />
-      </Routes>
+      <div className="h-auto w-full">
+        <Routes>
+          <Route path="/home" element={<HomeScreen />} />
+          <Route path="/AboutUs" element={<AboutUsScreen />} />
+          <Route path="/ContactUs" element={<ContactUsScreen />} />
+          <Route path="/Services" element={<ServicesScreen />} />
+          <Route path="/OurProcess" element={<OurProcessScreen />} />
+        </Routes>
+      </div>
+      <Footer />
     </>
   );
-};
+}
 
 export default App;

@@ -1,9 +1,12 @@
-import React from 'react'
+import BannerSection from "../components/BannerSection";
+import React from "react";
 
 const HomeScreen = () => {
   return (
-    <div>HomeScreen</div>
-  )
-}
+    <>
+      <BannerSection />
+    </>
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;

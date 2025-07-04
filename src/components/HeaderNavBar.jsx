@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const HeaderNavBar = () => {
-  return (
-    <div>HeaderNavBar</div>
-  )
-}
+  return <div>HeaderNavBar</div>;
+};
 
-export default HeaderNavBar
+export default HeaderNavBar;

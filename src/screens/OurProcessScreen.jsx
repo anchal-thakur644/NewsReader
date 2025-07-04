@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const OurProcessScreen = () => {
-  return (
-    <div>OurProcessScreen</div>
-  )
-}
+  return <div>OurProcessScreen</div>;
+};
 
-export default OurProcessScreen
+export default OurProcessScreen;
