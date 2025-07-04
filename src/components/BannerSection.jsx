@@ -20,7 +20,8 @@ const BannerSection = () => {
           showStatus={false}
           interval={3000}
           showArrows={false}
-          showIndicators={false}>
+          showIndicators={false}
+        >
           {bannerImages.map((image, index) => (
             <div key={index} className="h-[500px] w-full">
               <img
