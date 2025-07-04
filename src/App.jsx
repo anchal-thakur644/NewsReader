@@ -9,12 +9,14 @@ import HeaderNavBar from "./components/HeaderNavBar";
 import HomeScreen from "./screens/HomeScreen";
 import OurProcessScreen from "./screens/OurProcessScreen";
 import ServicesScreen from "./screens/ServicesScreen";
+import WelcomeModal from "./components/WelcomeModel";
 
 function App() {
   return (
     <>
       <HeaderNavBar />
       <div className="h-auto w-full">
+        <WelcomeModal />
         <Routes>
           <Route path="home" element={<HomeScreen />} />
           <Route path="/AboutUs" element={<AboutUsScreen />} />
