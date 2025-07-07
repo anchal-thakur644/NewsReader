@@ -5,9 +5,10 @@ import React from "react";
 import image1 from "../assets/chess.png";
 import image2 from "../assets/mircosoft.png";
 import image3 from "../assets/phone.png";
-
+import image4 from "../assets/sports.png";
+import image5 from "../assets/aircrash.png";
 const BannerSection = () => {
-  const bannerImages = [image1, image2, image3];
+  const bannerImages = [image1, image2, image3, image4, image5];
 
   return (
     <div className="relative h-[500px] w-full overflow-hidden">
@@ -20,7 +21,8 @@ const BannerSection = () => {
           showStatus={false}
           interval={3000}
           showArrows={false}
-          showIndicators={false}>
+          showIndicators={false}
+        >
           {bannerImages.map((image, index) => (
             <div key={index} className="h-[500px] w-full">
               <img
