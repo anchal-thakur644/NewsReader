@@ -11,7 +11,7 @@ const BannerSection = () => {
   const bannerImages = [image1, image2, image3, image4, image5];
 
   return (
-    <div className="relative h-[500px] w-full overflow-hidden">
+    <div className="relative h-[800px] w-full overflow-hidden">
       {/* 🖼 Background Carousel (z-0) */}
       <div className="absolute inset-0 z-0">
         <Carousel
@@ -24,7 +24,7 @@ const BannerSection = () => {
           showIndicators={false}
         >
           {bannerImages.map((image, index) => (
-            <div key={index} className="h-[500px] w-full">
+            <div key={index} className="h-[800px] w-full">
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
