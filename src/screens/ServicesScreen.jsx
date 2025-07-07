@@ -5,33 +5,40 @@ const ServicesScreen = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [selectedArticle, setSelectedArticle] = useState(null);
 
   const fetchNews = async () => {
-    if (!query) return;
+    if (!query.trim()) {
+      setError("Please enter a search term.");
+      return;
+    }
+
     setLoading(true);
     setError("");
     setArticles([]);
 
     try {
-      const response = await fetch(
-        `https://newsapi.org/v2/everything?q=${encodeURIComponent(
-          query
-        )}&sortBy=publishedAt&apiKey=a333a22b7714410385a642fe6149e173`
-      );
-      const data = await response.json();
+      const url = `https://newsdata.io/api/1/news?q=${encodeURIComponent(
+        query
+      )}&language=en&apikey=pub_3a5cc48a1d63463986b1debeb62d863e`;
 
-      if (data.status === "ok") {
-        setArticles(data.articles);
+      const res = await fetch(url);
+      const json = await res.json();
+
+      if (
+        json.status !== "success" ||
+        !json.results ||
+        json.results.length === 0
+      ) {
+        setError("No results found.");
       } else {
-        setError("Something went wrong: " + data.message);
+        setArticles(json.results);
       }
-    } catch (err) {
-      console.log(err);
+    } catch (e) {
+      console.error("Fetch error:", e);
       setError("Failed to fetch news. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const handleSubmit = (e) => {
@@ -39,22 +46,12 @@ const ServicesScreen = () => {
     fetchNews();
   };
 
-  const openModal = (article) => {
-    setSelectedArticle(article);
-  };
-
-  const closeModal = () => {
-    setSelectedArticle(null);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-12 sm:px-6 lg:px-16">
       <div className="max-w-3xl mx-auto text-center mb-10">
-        <h1 className="text-4xl font-bold text-gray-800 mb-2">
-          Search Latest News Content
-        </h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-2">News Search</h1>
         <p className="text-gray-600">
-          Use our search functionality to find the latest news on any topic.
+          Search the latest news using Newsdata.io — free and fast.
         </p>
 
         <form
@@ -85,9 +82,9 @@ const ServicesScreen = () => {
           <div
             key={index}
             className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform hover:scale-105">
-            {article.urlToImage && (
+            {article.image_url && (
               <img
-                src={article.urlToImage}
+                src={article.image_url}
                 alt={article.title}
                 className="rounded-md mb-4 h-48 w-full object-cover"
               />
@@ -95,51 +92,22 @@ const ServicesScreen = () => {
             <h2 className="text-lg font-semibold text-gray-800 mb-2">
               {article.title}
             </h2>
-            <p className="text-gray-600 text-sm mb-3">
+            <p className="text-gray-500 text-sm mb-1">
+              {new Date(article.pubDate).toLocaleString()}
+            </p>
+            <p className="text-gray-700 text-sm mb-3">
               {article.description?.slice(0, 100)}...
             </p>
-            <button
-              onClick={() => openModal(article)}
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-blue-500 font-medium hover:underline">
-              Read more →
-            </button>
+              Read full story →
+            </a>
           </div>
         ))}
       </div>
-
-      {/* Modal */}
-      {selectedArticle && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-2xl relative shadow-lg">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl">
-              &times;
-            </button>
-
-            {selectedArticle.urlToImage && (
-              <img
-                src={selectedArticle.urlToImage}
-                alt={selectedArticle.title}
-                className="rounded-md mb-4 w-full h-64 object-cover"
-              />
-            )}
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">
-              {selectedArticle.title}
-            </h2>
-            <p className="text-gray-700 mb-4">
-              {selectedArticle.content || selectedArticle.description}
-            </p>
-            <a
-              href={selectedArticle.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-2 text-blue-600 hover:underline">
-              Read full article on source →
-            </a>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
