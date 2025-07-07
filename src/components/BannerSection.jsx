@@ -1,16 +1,18 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Carousel } from "react-responsive-carousel";
+import { Link } from "react-router-dom";
 import React from "react";
 import image1 from "../assets/chess.png";
 import image2 from "../assets/mircosoft.png";
 import image3 from "../assets/phone.png";
+import image4 from "../assets/sports.png";
+import image5 from "../assets/aircrash.png";
 
 const BannerSection = () => {
-  const bannerImages = [image1, image2, image3];
-
+  const bannerImages = [image1, image2, image3, image4, image5];
   return (
-    <div className="relative h-[500px] w-full overflow-hidden">
+    <div className="relative h-[800px] w-full overflow-hidden">
       {/* 🖼 Background Carousel (z-0) */}
       <div className="absolute inset-0 z-0">
         <Carousel
@@ -23,7 +25,7 @@ const BannerSection = () => {
           showIndicators={false}
         >
           {bannerImages.map((image, index) => (
-            <div key={index} className="h-[500px] w-full">
+            <div key={index} className="h-[800px] w-full">
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
@@ -43,10 +45,10 @@ const BannerSection = () => {
         </p>
         <div className="flex gap-4">
           <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-            Get Started
+            <Link to={"/OurProcess"}>Get Started</Link>
           </button>
           <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-            Learn More
+            <Link to={"/AboutUs"}> Learn More</Link>
           </button>
         </div>
       </div>

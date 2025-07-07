@@ -1,10 +1,17 @@
+import React, { useState } from "react";
+
 import BannerSection from "../components/BannerSection";
-import React from "react";
+import WelcomeModel from "../components/WelcomeModel";
 
 const HomeScreen = () => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <>
-      <BannerSection />
+      {!isOpen ? (
+        <BannerSection />
+      ) : (
+        <WelcomeModel isOpen={isOpen} setIsOpen={setIsOpen} />
+      )}
     </>
   );
 };
