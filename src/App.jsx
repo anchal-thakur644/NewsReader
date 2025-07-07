@@ -18,7 +18,7 @@ function App() {
       <div className="h-auto w-full">
         <WelcomeModal />
         <Routes>
-          <Route path="home" element={<HomeScreen />} />
+          <Route path="/" element={<HomeScreen />} />
           <Route path="/AboutUs" element={<AboutUsScreen />} />
           <Route path="/ContactUs" element={<ContactUsScreen />} />
           <Route path="/Services" element={<ServicesScreen />} />
