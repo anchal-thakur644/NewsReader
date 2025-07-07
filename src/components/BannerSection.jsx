@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { Carousel } from "react-responsive-carousel";
+import { Link } from "react-router-dom";
 import React from "react";
 import image1 from "../assets/chess.png";
 import image2 from "../assets/mircosoft.png";
@@ -43,10 +44,10 @@ const BannerSection = () => {
         </p>
         <div className="flex gap-4">
           <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-            Get Started
+            <Link to={"/OurProcess"}>Get Started</Link>
           </button>
           <button className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-            Learn More
+            <Link to={"/AboutUs"}> Learn More</Link>
           </button>
         </div>
       </div>
