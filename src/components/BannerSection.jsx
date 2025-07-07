@@ -7,8 +7,8 @@ import image2 from "../assets/mircosoft.png";
 import image3 from "../assets/phone.png";
 
 const BannerSection = () => {
-  const bannerImages = [image1, image2, image3];
 
+  const bannerImages = [image1, image2, image3];
   return (
     <div className="relative h-[800px] w-full overflow-hidden">
       {/* 🖼 Background Carousel (z-0) */}

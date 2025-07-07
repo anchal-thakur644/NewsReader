@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 
-const WelcomeModal = () => {
+function WelcomeModel() {
   const [isOpen, setIsOpen] = useState(true);
 
   if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+    <div className="min-h-screen bg-blue-50 flex justify-center items-center">
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full text-center">
         <button
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
           onClick={() => setIsOpen(false)}
-        >
-        </button>
-        <h2 className="text-2xl font-semibold mb-2">Welcome to NewsReader</h2>
-        <p className="text-gray-600 mb-4">
-          Stay informed with the latest headlines from around the world. Explore
-          curated articles and breaking news.
+        ></button>
+        <h1 className="text-4xl font-semibold text-blue-600 mb-4">
+          Welcome to News Reader
+        </h1>
+        <p className="text-lg text-gray-600 mb-6">
+          Stay updated with the latest news from around the world.
         </p>
         <button
           onClick={() => setIsOpen(false)}
@@ -27,6 +26,6 @@ const WelcomeModal = () => {
       </div>
     </div>
   );
-};
+}
 
-export default WelcomeModal;
+export default WelcomeModel;

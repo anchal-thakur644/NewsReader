@@ -72,7 +72,7 @@ const Footer = () => {
                 Firefox extension
               </a>
             </li>
-            <li className="w-[165px] h-auto flex flex-col flex-wrap ">
+            <li className="w-[170px] h-auto flex flex-col flex-wrap ">
               <a href="#" className="hover:text-gray-400  font-bold mr-5">
                 contact Us
               </a>
