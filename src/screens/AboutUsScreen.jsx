@@ -5,7 +5,7 @@ const AboutUsScreen = () => {
     {
       name: "Baljit Kaur",
       rollNumber: "2224885",
-      branch: "IT",
+      branch: "Computer Application",
       className: "BCA 3rd Year",
       image:
         "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png",
@@ -13,7 +13,7 @@ const AboutUsScreen = () => {
     {
       name: "Gagan",
       rollNumber: "2224889",
-      branch: "IT",
+      branch: "Computer Application",
       className: "BCA 3rd Year",
       image:
         "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png",
@@ -21,7 +21,7 @@ const AboutUsScreen = () => {
     {
       name: "Harpreet Kaur",
       rollNumber: "2224896",
-      branch: "IT",
+      branch: "Computer Application",
       className: "BCA 3rd Year",
       image:
         "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png",
@@ -29,7 +29,7 @@ const AboutUsScreen = () => {
     {
       name: "Anchal",
       rollNumber: "2224878",
-      branch: "IT",
+      branch: "Computer Application",
       className: "BCA 3rd Year",
       image:
         "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png",
@@ -54,7 +54,8 @@ const AboutUsScreen = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden w-80 transform hover:scale-105 hover:shadow-xl transition duration-500">
+                className="bg-white rounded-2xl shadow-lg overflow-hidden w-80 transform hover:scale-105 hover:shadow-xl transition duration-500"
+              >
                 <img
                   src={member.image}
                   alt={member.name}
@@ -178,7 +179,8 @@ const AboutUsScreen = () => {
                 Have questions or suggestions? Feel free to reach out at{" "}
                 <a
                   href="mailto:support@newsreader.com"
-                  className="text-blue-600 hover:underline">
+                  className="text-blue-600 hover:underline"
+                >
                   support@newsreader.com
                 </a>
                 .
