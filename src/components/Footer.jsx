@@ -7,7 +7,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10">
+    <footer className="bg-blue-300 text-Black py-10">
       <div className="container mx-auto px">
         <div className="flex flex-col md:flex-row md:justify-between items-center space-y-6 md:space-y-0">
           {/* Logo or Title */}
@@ -72,15 +72,15 @@ const Footer = () => {
                 Firefox extension
               </a>
             </li>
-            <li className="w-[170px] h-auto flex flex-col flex-wrap ">
+            <li className="w-[180px] h-auto flex flex-col flex-wrap ">
               <a href="#" className="hover:text-gray-400  font-bold mr-5">
                 contact Us
               </a>
               <a href="#" className="hover:text-gray-400 mr-3">
-                Email: exapmle@gmail.com
+                Email : example@gmail.com
               </a>
               <a href="#" className="hover:text-gray-400 mr-3">
-                phone: +91 5468256778
+                phone : +91 5468256778
               </a>
             </li>
           </ul>
@@ -110,7 +110,12 @@ const Footer = () => {
               <a href="#" aria-label="Facebook" className="hover:text-pink-400">
                 <FacebookIcon />
               </a>
-              <a href="#" aria-label="Github" className="hover:text-pink-400">
+              <a
+                target="_blank"
+                href="https://github.com/anchal-thakur644/NewsReader/tree/main"
+                aria-label="Github"
+                className="hover:text-pink-400"
+              >
                 <GitHubIcon />
               </a>
               <a
